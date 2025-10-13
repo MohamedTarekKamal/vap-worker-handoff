@@ -1,0 +1,51 @@
+{
+  "request_id": "job-20251002-0001",
+  "base_url": "http://testphp.vulnweb.com",
+  "requested_by": {
+    "user_id": "pen-tester-1",
+    "contact": "you@example.com",
+    "authorization_reference": "auth_doc_123.pdf"
+  },
+  "target": {
+    "url": "http://testphp.vulnweb.com",
+    "allowed_subdomains": [
+      "testphp.vulnweb.com"
+    ]
+  },
+  "endpoints": [],
+  "finding": {
+    "type": "SQL Injection",
+    "title": "Possible SQL Injection on login.php",
+    "initial_severity": "Medium",
+    "confidence": 0.7,
+    "poc": {
+      "method": "POST",
+      "path": "/login.php",
+      "body": {
+        "username": "test",
+        "password": "test"
+      },
+      "headers": {
+        "User-Agent": "safe-scan/1.0",
+        "Content-Type": "application/x-www-form-urlencoded"
+      }
+    },
+    "notes": "Run automated test with sqlmap."
+  },
+  "options": {
+    "use_sqlmap": true,
+  "sqlmap_level": 2,
+  "sqlmap_risk": 3,
+  "sqlmap_timeout": 600,
+  "sqlmap_batch": true,
+  "sqlmap_extra_args": ["--threads=2"],
+  "timeout": 300,
+  "max_links": 50
+
+  },
+  "scan_profile": {
+    "mode": "intrusive"
+  },
+  "created_at": "2025-10-13T02:00:00+03:00",
+  "task_id": "job-20251002-0001"
+}
